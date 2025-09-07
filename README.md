@@ -1,6 +1,8 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/rupambhardwaj4/Portfolio)
 ![GitHub stars](https://img.shields.io/github/stars/rupambhardwaj4/Portfolio?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/rupambhardwaj4/Portfolio?style=social)
+![Rupam's GitHub Stats](https://github-readme-stats.vercel.app/api?username=rupambhardwaj4&show_icons=true&theme=radical)
+
 
 
 # 🧑‍💻 Rupam Bhardwaj's Portfolio
