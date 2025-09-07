@@ -101,40 +101,35 @@ for (let i = 0; i < navigationLinks.length; i++) {
 }
 
 //email
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
+// Email form handling
+const contactForm = document.getElementById("contact-form");
+const formStatus = document.getElementById("form-status");
 
-    // send form data using EmailJS
-    // Initialize EmailJS
-(function() {
-  emailjs.init("ucboJ_-slEhJKaTsu"); // Replace with your EmailJS user ID
-})();
+contactForm.addEventListener("submit", async function (event) {
+  event.preventDefault();
 
-// Select form and button
-const form = document.querySelector("[data-form]");
-const formBtn = document.querySelector("[data-form-btn]");
+  const formData = new FormData(contactForm);
 
-// Enable button if form is valid
-form.addEventListener("input", function() {
-  if (form.checkValidity()) {
-    formBtn.removeAttribute("disabled");
-  } else {
-    formBtn.setAttribute("disabled", "");
-  }
-});
-
-// Handle form submission
-form.addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent default form submission
-
-  emailjs.sendForm('service_v5mkank', 'template_7yxbpw4', this)
-    .then(function() {
-      alert('Message sent successfully!');
-      form.reset();       // Clear form
-      formBtn.setAttribute("disabled", ""); // Disable button again
-    }, function(error) {
-      alert('Failed to send message: ' + JSON.stringify(error));
+  try {
+    const response = await fetch(contactForm.action, {
+      method: contactForm.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
     });
-});
 
+    if (response.ok) {
+      formStatus.style.display = "block";   // Show thank you message
+      formStatus.style.color = "green";
+      formStatus.textContent = "✅ Thank you! Your message has been sent successfully.";
+      contactForm.reset();
+    } else {
+      formStatus.style.display = "block";
+      formStatus.style.color = "red";
+      formStatus.textContent = "⚠️ Oops! Something went wrong. Please try again.";
+    }
+  } catch (error) {
+    formStatus.style.display = "block";
+    formStatus.style.color = "red";
+    formStatus.textContent = "⚠️ Network error. Please check your connection.";
+  }
 });
