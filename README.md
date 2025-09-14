@@ -11,7 +11,7 @@ Welcome to my personal portfolio! This project showcases my skills, projects, an
 ---
 
 ## 📁 Project Structure
-
+```text
 📦 Portfolio
 ┣ 📂 assets
 ┃ ┣ 📂 css
@@ -22,6 +22,7 @@ Welcome to my personal portfolio! This project showcases my skills, projects, an
 ┃ ┃ ┗ 📜 script.js
 ┗ 📜 index.html
 
+```
 
 ---
 
